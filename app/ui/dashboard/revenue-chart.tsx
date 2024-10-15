@@ -22,10 +22,10 @@ export default async function RevenueChart({ revenue }: { revenue: Revenue[] }) 
   return (
     <div className="w-full md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>Recent Revenue</h2>
-      {/* NOTE: Uncomment this code in Chapter 7 */}
 
       <div className="rounded-xl bg-gray-50 p-4">
         <div className="sm:grid-cols-13 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 md:gap-4">
+          {/* chart y-axis label */}
           <div
             className="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
             style={{ height: `${chartHeight}px` }}>
@@ -33,9 +33,10 @@ export default async function RevenueChart({ revenue }: { revenue: Revenue[] }) 
               <p key={label}>{label}</p>
             ))}
           </div>
-
+          {/* chart bars with x-axis label */}
           {revenue.map((month) => (
             <div key={month.month} className="flex flex-col items-center gap-2">
+              {/* example: revenue: 2200 => height(350 / 5000) * 2200 = 154px */}
               <div
                 className="w-full rounded-md bg-blue-300"
                 style={{
